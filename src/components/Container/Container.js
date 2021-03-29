@@ -1,29 +1,28 @@
-import React , { Component } from "react";
-import API from "../../utils/API";
+import React , { useState, useEffect  } from "react";
+import axios from 'axios'
 
-class Container extends Component {
-    state = {
-        result: {},
-        search: ""
-      };
+const DataTable = () => {
+    const [employeeInfo, setEmployeeInfo] = useState({
+      });
 
-      componentDidMount() {
-        this.search();
-      }
-
-    search() {
-        API.search()
-        .then(res => { console.log(res) })
-        .catch(err => console.log(err));
-      }
-
-    render() {
+      useEffect(() => {
+        search()
+    }, [])
+    
+    
+    
+    const search = async() => {
+        const res = await axios('https://randomuser.me/api/?results=20')
+        setEmployeeInfo( res.data.results)
+    }
+    
+console.log(employeeInfo)
         return (
           <div className="container">
-            <p className="content">lorem</p>
+              <div className="row">
+              </div>
           </div>
         );
-    }
   }
 
-export default Container;
+export default DataTable;
