@@ -1,29 +1,46 @@
 import React, { Component } from 'react'
-import API from '../../API/API'
-import Employee from '../Card/Card'
+import API from '../../utils/API'
+import Card from '../Card/Card'
+import Sort from '../Sort/Sort'
 
 class Container extends Component {
-  state = {
-    employees: []
-  }
+    state = {
+        employees: [],
+        filtert: []
+    }
 
   componentDidMount() {
     API.randomEmployee()
       .then(response => {
-        this.setState({ 'employees': response.data.results })
+        this.setState({ ...this.state, 'employees': response.data.results })
       })
       .catch(err => console.log(err))
   }
+ 
+  handleButtonChange= () => {
+    this.setState({...this.state, 'filtert': this.state.employees.sort((a, b)=>{
+        if(a.name.first < b.name.first) { return -1; }
+        if(a.name.first > b.name.first) { return 1; }
+        return 0;
+        })
+
+    }
+    ) 
+    console.log(this.state.filtert)
+} 
+
 
   render() {
     return (
       <div className="Container">
+          <Sort
+          handleButtonChange = {this.handleButtonChange}/>
           {this.state.employees.map((employee, index) => {
             return (
-              <Employee 
+              <Card
                 key={index}
                 employeeKey={index+1}
-                image={employee.picture.thumbnail}
+                image={employee.picture.medium}
                 firstName={employee.name.first}
                 lastName={employee.name.last}
                 phone={employee.phone}

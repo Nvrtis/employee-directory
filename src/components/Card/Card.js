@@ -1,15 +1,17 @@
 import React from 'react'
 
+
 function Card(employee) {
   return (
-    <div>
-      <div className="row">{employee.employeeKey}</div>
-      <img alt={employee.firstName} src={employee.image} />
-      <p>{employee.firstName}</p>
-      <p>{employee.lastName}</p>
-      <p>{employee.phone}</p>
-      <p>{employee.email}</p>
-      <p>{employee.location}</p>
+    <div className="card" style={{width: "18rem"}}>
+      <div>{employee.employeeKey}</div>
+      <img src={employee.image} className="card-img-top" alt={employee.firstName}  />
+      <div className="card-body">
+      <h5 className="card-title img-fluid">{employee.firstName} {employee.lastName}</h5>
+      <p className="card-text">{employee.phone}</p>
+      <p className="card-text">{employee.email}</p>
+      <p className="card-text">{employee.location}</p>
+      </div>
     </div>
   )
 }
