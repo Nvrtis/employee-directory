@@ -1,19 +1,17 @@
-import React from "react";
+import React from 'react'
 
 function Card(employee) {
-  console.log(employee)
-   return (
-       <div>
-           {/* <img
-               src={image}
-               alt="employee"
-           /> */}
-           <p>{employee.name}</p>
-           <p>{employee.gender}</p>
-           <p>{employee.email}</p>
-           <p>{employee.phone}</p>
-       </div>
-   )
+  return (
+    <div>
+      <div className="row">{employee.employeeKey}</div>
+      <img alt={employee.firstName} src={employee.image} />
+      <p>{employee.firstName}</p>
+      <p>{employee.lastName}</p>
+      <p>{employee.phone}</p>
+      <p>{employee.email}</p>
+      <p>{employee.location}</p>
+    </div>
+  )
 }
 
-export default Card;
+export default Card

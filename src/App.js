@@ -1,41 +1,17 @@
-import React , { useState, useEffect  } from "react";
+import React from 'react'
 import './App.css';
-import Header from "./components/Header/Header"
-import Container from "./components/Container/Container"
-import CardList from "./components/CardList/CardList"
-import axios from 'axios'
-
+import Container from './components/Container/Container'
+import Header from './components/Header/Header'
 
 function App() {
-    const [employeeInfo, setEmployeeInfo] = useState([]);
-
-      useEffect(() => {
-        search()
-    }, [])
-    
-
-    
-    const search = async() => {
-        const res = await axios('https://randomuser.me/api/?results=20')
-        // console.log(res.data.results)
-        setEmployeeInfo([
-
-          res.data.results
-        ]
-        )
-    }
-
-
-    // console.log(employeeInfo)
-
   return (
     <div>
-    <Header/>
-    <Container>
-        <CardList data={employeeInfo}/>
-      </Container>
-    </div>
+      <Header/>
+        <div>
+          <Container />
 
+        </div>
+    </div>
   );
 }
 
