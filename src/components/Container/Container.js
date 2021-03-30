@@ -26,7 +26,6 @@ class Container extends Component {
 
     }
     ) 
-    console.log(this.state.filtert)
 } 
 
 

@@ -1,5 +1,4 @@
-import React, { useContext } from 'react'
-import Card from '../Card/Card'
+import React from 'react'
 
 const Sort = (props) => {
 
