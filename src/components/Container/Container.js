@@ -1,28 +1,14 @@
-import React , { useState, useEffect  } from "react";
-import axios from 'axios'
+import React  from "react";
 
-const DataTable = () => {
-    const [employeeInfo, setEmployeeInfo] = useState({
-      });
 
-      useEffect(() => {
-        search()
-    }, [])
-    
-    
-    
-    const search = async() => {
-        const res = await axios('https://randomuser.me/api/?results=20')
-        setEmployeeInfo( res.data.results)
-    }
-    
-console.log(employeeInfo)
+
+function Container(props) {
+
         return (
-          <div className="container">
-              <div className="row">
-              </div>
-          </div>
-        );
+                <div className="container max-w-6xl px-10 mx-auto">
+                    {props.children}
+                </div>
+            )
   }
 
-export default DataTable;
+export default Container;

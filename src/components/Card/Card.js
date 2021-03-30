@@ -1,14 +1,19 @@
 import React from "react";
 
-function Card(props) {
-  return (
-    <div className="card text-center">
-      <div className="card-header">
-        <h2>{props.heading}</h2>
-      </div>
-      <div className="card-body">{props.children}</div>
-    </div>
-  );
+function Card(employee) {
+  console.log(employee)
+   return (
+       <div>
+           {/* <img
+               src={image}
+               alt="employee"
+           /> */}
+           <p>{employee.name}</p>
+           <p>{employee.gender}</p>
+           <p>{employee.email}</p>
+           <p>{employee.phone}</p>
+       </div>
+   )
 }
 
 export default Card;
