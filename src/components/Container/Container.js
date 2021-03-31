@@ -6,12 +6,14 @@ import Sort from '../Sort/Sort'
 import "./style.css";
 
 class Container extends Component {
+    // employees is our list with 20, sorted will be either by filtered by gender or sorted by name 
     state = {
         employees: [],
         sorted: [],
         filtert: ""
     }
 
+    // mounts our state with our employees 
     componentDidMount() {
         API.randomEmployee()
             .then(response => {
@@ -20,6 +22,7 @@ class Container extends Component {
             .catch(err => console.log(err))
     }
 
+    // sort our array by name
     handleButtonChange = () => {
         this.setState({
             ...this.state, "sorted": this.state.employees.sort((a, b) => {
@@ -32,6 +35,7 @@ class Container extends Component {
         )
     }
 
+    // filter our array of employees
     handleFilter = (e) => {
         if (e.target.value === "none") {
             this.setState({
