@@ -1,9 +1,10 @@
 import React from 'react'
+import "./style.css";
 
 const Sort = (props) => {
 
 return(
-        <button onClick={props.handleButtonChange}>Sort By Name</button>
+        <button className="Sorter" onClick={props.handleButtonChange}>Sort By Name</button>
 )
 
 }
